@@ -1,0 +1,9 @@
+/**
+ * SAV-SCC — Ponto de Entrada Principal de Estilos
+ */
+
+@import './tokens.css';
+@import './reset.css';
+@import './typography.css';
+@import './layout.css';
+@import './components.css';

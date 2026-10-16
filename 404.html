@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Não Encontrada (404) | SAV-SCC, SU, Lda.</title>
+  <meta name="description" content="A página solicitada não foi encontrada. Regresse à página inicial da SAV-SCC, SU, Lda.">
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Tipografia do Google Fonts (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+  <!-- Link acessível para utilizadores de teclado -->
+  <a href="#main-content" class="sr-only">Saltar para o conteúdo principal</a>
+
+  <!-- Cabeçalho e Navegação -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="./index.html" class="site-logo" aria-label="SAV-SCC — Página Inicial">
+        <img 
+          src="./img/Logotipo.jpeg" 
+          alt="Logótipo SAV-SCC - Contabilidade, Fiscalidade e Gestão Financeira" 
+          width="180" 
+          height="52"
+          loading="eager"
+        >
+      </a>
+
+      <!-- Botão Hambúrguer Acessível (Mobile) -->
+      <button 
+        type="button" 
+        class="nav-toggle" 
+        id="nav-toggle" 
+        aria-expanded="false" 
+        aria-controls="nav-menu" 
+        aria-label="Abrir menu de navegação"
+      >
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+
+      <!-- Menu de Navegação -->
+      <nav class="nav-menu" id="nav-menu" aria-label="Navegação Principal">
+        <ul class="nav-list">
+          <li><a href="./index.html" class="nav-link">Início</a></li>
+          <li><a href="./servicos.html" class="nav-link">Serviços</a></li>
+          <li><a href="./proposta-de-valor.html" class="nav-link">Proposta de Valor</a></li>
+          <li><a href="./sobre-nos.html" class="nav-link">Sobre nós</a></li>
+          <li><a href="./contactos.html" class="nav-link">Contactos</a></li>
+        </ul>
+
+        <div class="nav-cta-wrapper">
+          <a href="./contactos.html" class="btn btn-primary">Fale Connosco</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content">
+    <section class="section" style="min-height: 60vh; display: flex; align-items: center;">
+      <div class="container" style="text-align: center; max-width: 600px;">
+        <span class="text-eyebrow" style="color: var(--color-error); background-color: #fef2f2;">Erro 404</span>
+        <h1 style="font-size: var(--font-size-3xl); margin-top: var(--space-3); margin-bottom: var(--space-4);">Página Não Encontrada</h1>
+        <p style="color: var(--color-neutral-600); line-height: var(--line-height-relaxed); margin-bottom: var(--space-8);">
+          O endereço que procurou não existe ou foi reestruturado. Convidamo-lo a regressar à página inicial ou a consultar as nossas áreas de especialização.
+        </p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="./index.html" class="btn btn-primary">Voltar ao Início</a>
+          <a href="./contactos.html" class="btn btn-secondary">Contactar a SAV-SCC</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé Institucional -->
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-8); align-items: flex-start;">
+        <div>
+          <p style="color: var(--color-white); font-weight: var(--font-weight-bold); font-size: var(--font-size-lg); margin-bottom: var(--space-2);">
+            SAV-SCC, SU, Lda.
+          </p>
+          <p style="font-size: var(--font-size-sm); color: var(--color-neutral-300); margin-bottom: var(--space-3);">
+            Consultoria e serviços especializados em contabilidade, fiscalidade, gestão financeira e organização empresarial.
+          </p>
+          <p style="font-size: var(--font-size-xs); color: var(--color-neutral-400);">
+            <em>“Rigor. Confiança. Estratégia.”</em>
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-nav-title">Navegação Rápida</h4>
+          <ul class="footer-nav-list">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./servicos.html">Serviços</a></li>
+            <li><a href="./proposta-de-valor.html">Proposta de Valor</a></li>
+            <li><a href="./sobre-nos.html">Sobre nós</a></li>
+            <li><a href="./contactos.html">Contactos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 SAV-SCC, SU, Lda. Todos os direitos reservados.</span>
+        <span>Maputo, Moçambique</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/scripts/main.js"></script>
+</body>
+</html>

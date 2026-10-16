@@ -1,0 +1,25 @@
+# Dependências
+node_modules/
+
+# Builds e bundles
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Ficheiros de ambiente e chaves locais
+.env
+.env.local
+.env.*.local
+
+# Ficheiros de sistema e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
