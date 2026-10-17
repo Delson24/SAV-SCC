@@ -47,12 +47,22 @@ export function initContactForm() {
       return;
     }
 
-    // Caso válido: Informar com transparência o estado de configuração institucional
+    // Caso válido: Informar com transparência e oferecer ligação direta para WhatsApp oficial
     if (statusContainer) {
       statusContainer.innerHTML = `
-        <div style="background-color: var(--color-primary-50); border: 1px solid var(--color-primary-200); color: var(--color-primary-900); padding: var(--space-4); border-radius: var(--radius-md); font-size: var(--font-size-xs); margin-top: var(--space-3);" role="status">
-          <strong>Dados validados com sucesso.</strong><br>
-          O canal oficial de receção da SAV-SCC encontra-se em fase de configuração final. O seu registo foi processado nesta interface de demonstração institucional.
+        <div style="background-color: var(--color-neutral-100); border: 1px solid var(--color-neutral-300); color: var(--color-primary-900); padding: var(--space-4); border-radius: var(--radius-md); font-size: var(--font-size-xs); margin-top: var(--space-3);" role="status">
+          <strong>Dados validados com sucesso.</strong>
+          <p style="margin: var(--space-2) 0 var(--space-3) 0; color: var(--color-neutral-700);">
+            Para resposta imediata da equipa da SAV-SCC, pode contactar-nos diretamente pelo WhatsApp oficial ou efetuar uma chamada telefónica.
+          </p>
+          <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+            <a href="https://wa.me/258828210526" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-direct" style="padding: 0.5rem 1rem; font-size: var(--font-size-xs);">
+              Conversar no WhatsApp &rarr;
+            </a>
+            <a href="tel:+258828210526" class="btn-call-direct" style="padding: 0.5rem 1rem; font-size: var(--font-size-xs);">
+              Ligar: +258 82 821 0526
+            </a>
+          </div>
         </div>
       `;
     }

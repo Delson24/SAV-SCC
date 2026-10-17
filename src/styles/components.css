@@ -330,32 +330,31 @@
   min-height: 520px;
 }
 
-/* Camada 1: Imagem de fundo — desfoque muito subtil para preservar os detalhes de Maputo */
+/* Camada 1: Imagem de fundo — nítida, preservando a vista arquitetónica de Maputo */
 .hero-bg-media {
   position: absolute;
-  inset: -6px;
+  inset: 0;
   background-image: url('../../img/hero-maputo.jpg');
   background-size: cover;
   background-position: center 65%;
   background-repeat: no-repeat;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
-  transform: scale(1.02);
+  filter: none;
+  -webkit-filter: none;
+  transform: scale(1.01);
   z-index: 1;
   pointer-events: none;
   animation: heroImageReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Camada 2: Sobreposição em gradiente azul-escuro institucional */
+/* Camada 2: Sobreposição em gradiente azul-marinho institucional com equilíbrio entre nitidez e contraste */
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    155deg,
-    rgba(0, 23, 51, 0.85) 0%,
-    rgba(0, 34, 68, 0.78) 40%,
-    rgba(10, 37, 64, 0.72) 70%,
-    rgba(0, 40, 85, 0.74) 100%
+    140deg,
+    rgba(0, 15, 36, 0.84) 0%,
+    rgba(0, 23, 51, 0.74) 45%,
+    rgba(0, 34, 68, 0.68) 100%
   );
   z-index: 2;
   pointer-events: none;
@@ -553,14 +552,25 @@
   background-color: var(--color-white);
   border: 1px solid var(--color-neutral-200);
   border-radius: var(--radius-lg);
-  padding: var(--space-8);
+  padding: var(--space-6) var(--space-6);
   box-shadow: var(--shadow-sm);
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-10);
 }
 
-.pipeline-header {
-  text-align: center;
-  margin-bottom: var(--space-8);
+.pipeline-differential-quote {
+  background-color: var(--color-neutral-50);
+  border-left: 3px solid var(--color-primary-700);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-6);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.pipeline-differential-quote p {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-700);
+  line-height: var(--line-height-normal);
+  margin-bottom: 0;
+  font-weight: var(--font-weight-medium);
 }
 
 .pipeline-grid {
@@ -573,6 +583,7 @@
 @media (min-width: 768px) {
   .pipeline-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
   }
 }
 
@@ -580,37 +591,66 @@
   background-color: var(--color-neutral-50);
   border: 1px solid var(--color-neutral-200);
   border-radius: var(--radius-md);
-  padding: var(--space-5);
+  padding: var(--space-4);
   position: relative;
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal), background-color var(--transition-normal);
 }
 
-.pipeline-card:hover {
+.pipeline-card:hover,
+.pipeline-card:focus-within {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-700);
+  background-color: var(--color-white);
+}
+
+.pipeline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.pipeline-card-arrow {
+  display: none;
+  color: var(--color-neutral-400);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+@media (min-width: 768px) {
+  .pipeline-card:not(:last-child) .pipeline-card-arrow {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.pipeline-card:hover .pipeline-card-arrow {
+  color: var(--color-primary-700);
+  transform: translateX(2px);
+}
+
+/* Último passo do pipeline — destaque sóbrio */
+.pipeline-card-final {
   border-color: var(--color-neutral-300);
 }
 
-/* Último passo do pipeline — destaque subtil */
-.pipeline-card-final {
-  background-color: var(--color-primary-50);
-  border-color: var(--color-neutral-300);
+.pipeline-card-final .pipeline-step-badge {
+  color: var(--color-primary-900);
 }
 
 .pipeline-step-badge {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary-700);
-  margin-bottom: var(--space-2);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .pipeline-card h4 {
   font-size: var(--font-size-md);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   color: var(--color-primary-900);
 }
 
@@ -618,9 +658,299 @@
   font-size: var(--font-size-xs);
   line-height: var(--line-height-normal);
   color: var(--color-neutral-600);
+  margin-bottom: 0;
 }
 
-/* Pilares de Valor */
+/* ==========================================================================
+   Ciclo Interativo de Inteligência Financeira
+   Apresentação compacta etapa por etapa (DADOS -> INFORMAÇÃO -> ANÁLISE -> DECISÃO)
+   ========================================================================== */
+
+.cycle-interactive-container {
+  max-width: 820px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 640px) {
+  .cycle-interactive-container {
+    padding: var(--space-8);
+  }
+}
+
+/* Barra de etapas do ciclo (indicadores visuais clicáveis) */
+.cycle-steps-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-neutral-200);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cycle-steps-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.cycle-step-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  color: var(--color-neutral-500);
+  white-space: nowrap;
+}
+
+.cycle-step-tab:hover {
+  color: var(--color-primary-900);
+  background-color: var(--color-neutral-50);
+}
+
+.cycle-step-tab.is-active {
+  color: var(--color-primary-950);
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-300);
+  font-weight: var(--font-weight-semibold);
+}
+
+.cycle-step-tab .cycle-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-700);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  transition: all var(--transition-fast);
+}
+
+.cycle-step-tab.is-active .cycle-step-num {
+  background-color: var(--color-primary-900);
+  color: var(--color-white);
+}
+
+.cycle-step-tab .cycle-step-name {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cycle-step-divider {
+  color: var(--color-neutral-300);
+  font-size: var(--font-size-sm);
+  user-select: none;
+}
+
+/* Cartão da etapa atual */
+.cycle-display-card {
+  background-color: var(--color-neutral-50);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color var(--transition-fast);
+}
+
+.cycle-card-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.cycle-stage-badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-900);
+  background-color: var(--color-neutral-200);
+  border-radius: var(--radius-sm);
+}
+
+.cycle-counter {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-600);
+  background-color: var(--color-white);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-neutral-200);
+}
+
+.cycle-content-body {
+  margin-bottom: var(--space-6);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.cycle-stage-title {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-950);
+  margin-bottom: var(--space-2);
+}
+
+.cycle-stage-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-700);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 0;
+  max-width: 680px;
+}
+
+/* Barra de controlos: Anterior / Seguinte */
+.cycle-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+.cycle-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.5rem 1.1rem;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  font-weight: var(--font-weight-medium);
+}
+
+.cycle-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cycle-progress-indicators {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cycle-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-neutral-300);
+  transition: all var(--transition-fast);
+}
+
+.cycle-dot.is-active {
+  width: 22px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-900);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cycle-content-body {
+    transition: none !important;
+  }
+}
+
+/* Botões de Ação Específicos dos Contactos Oficiais */
+.btn-whatsapp-direct {
+  background-color: var(--color-primary-900);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary-700);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-whatsapp-direct:hover,
+.btn-whatsapp-direct:focus-visible {
+  background-color: var(--color-primary-800);
+  border-color: var(--color-primary-600);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-call-direct {
+  background-color: var(--color-neutral-100);
+  color: var(--color-primary-900);
+  border: 1px solid var(--color-neutral-300);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-call-direct:hover,
+.btn-call-direct:focus-visible {
+  background-color: var(--color-neutral-200);
+  border-color: var(--color-neutral-400);
+  color: var(--color-primary-900);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-maps-action {
+  background-color: var(--color-white);
+  color: var(--color-primary-900);
+  border: 1px solid var(--color-neutral-300);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-semibold);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  margin-top: var(--space-2);
+}
+
+.btn-maps-action:hover,
+.btn-maps-action:focus-visible {
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-primary-700);
+  color: var(--color-primary-700);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Pilares de Valor e Composição Assimétrica (Proposta de Valor)
+   ========================================================================== */
+
 .value-pillar-card {
   background-color: var(--color-white);
   border: 1px solid var(--color-neutral-200);
@@ -649,6 +979,7 @@
   color: var(--color-primary-800);
   border-radius: var(--radius-md);
   margin-bottom: var(--space-4);
+  flex-shrink: 0;
 }
 
 .value-pillar-card h3 {
@@ -661,6 +992,111 @@
   font-size: var(--font-size-sm);
   color: var(--color-neutral-600);
   line-height: var(--line-height-relaxed);
+}
+
+/* Composição Assimétrica e Animação Direcional dos 4 Pilares */
+.pillars-asymmetric-grid {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .pillars-asymmetric-grid {
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-8);
+    align-items: flex-start;
+  }
+}
+
+.pillar-card-asymmetric {
+  --resting-y: 0px;
+  --enter-y: 0px;
+}
+
+/* Offsets assimétricos e posições de entrada em desktop */
+@media (min-width: 992px) {
+  .pillar-pos-top-1 {
+    --resting-y: -16px;
+    --enter-y: -56px; /* Entra a partir de cima na direção da posição final */
+    transition-delay: 0.06s;
+  }
+
+  .pillar-pos-bottom-1 {
+    --resting-y: 18px;
+    --enter-y: 58px; /* Entra a partir de baixo na direção da posição final */
+    transition-delay: 0.18s;
+  }
+
+  .pillar-pos-top-2 {
+    --resting-y: -12px;
+    --enter-y: -52px; /* Entra a partir de cima na direção da posição final */
+    transition-delay: 0.3s;
+  }
+
+  .pillar-pos-bottom-2 {
+    --resting-y: 22px;
+    --enter-y: 62px; /* Entra a partir de baixo na direção da posição final */
+    transition-delay: 0.42s;
+  }
+
+  .pillar-card-asymmetric {
+    transform: translateY(var(--resting-y));
+  }
+}
+
+/* Em ecrãs móveis e tablets: eliminar assimetria vertical excessiva */
+@media (max-width: 991px) {
+  .pillar-card-asymmetric {
+    --resting-y: 0px !important;
+  }
+
+  .pillar-pos-top-1,
+  .pillar-pos-top-2 {
+    --enter-y: -20px;
+    transition-delay: 0.05s;
+  }
+
+  .pillar-pos-bottom-1,
+  .pillar-pos-bottom-2 {
+    --enter-y: 20px;
+    transition-delay: 0.15s;
+  }
+}
+
+/* Animação com JavaScript Ativo */
+html.js-active .pillars-asymmetric-grid:not(.is-visible) .pillar-card-asymmetric {
+  opacity: 0;
+  transform: translateY(var(--enter-y));
+}
+
+html.js-active .pillar-card-asymmetric {
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow var(--transition-normal),
+              border-color var(--transition-normal);
+}
+
+html.js-active .pillars-asymmetric-grid.is-visible .pillar-card-asymmetric {
+  opacity: 1;
+  transform: translateY(var(--resting-y));
+}
+
+/* Hover nos cards assimétricos respeitando a elevação sobre o offset de repouso */
+.pillars-asymmetric-grid .pillar-card-asymmetric:hover {
+  transform: translateY(calc(var(--resting-y) - 4px));
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-neutral-300);
+}
+
+/* Acessibilidade: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .pillar-card-asymmetric,
+  html.js-active .pillars-asymmetric-grid:not(.is-visible) .pillar-card-asymmetric,
+  html.js-active .pillars-asymmetric-grid.is-visible .pillar-card-asymmetric {
+    opacity: 1 !important;
+    transform: translateY(var(--resting-y, 0px)) !important;
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 /* ==========================================================================
@@ -807,10 +1243,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-primary-50);
-  color: var(--color-primary-700);
+  background-color: var(--color-neutral-100);
+  color: var(--color-primary-800);
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-primary-100);
+  border: 1px solid var(--color-neutral-200);
 }
 
 .contact-meta-content h4 {
@@ -830,7 +1266,7 @@
   align-items: center;
   gap: var(--space-2);
   background-color: var(--color-neutral-100);
-  color: var(--color-neutral-700);
+  color: var(--color-neutral-800);
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
@@ -842,7 +1278,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--color-accent-600);
+  background-color: var(--color-success);
 }
 
 /* Formulário de Contacto */
@@ -938,6 +1374,62 @@ textarea.form-control {
   font-size: var(--font-size-sm);
 }
 
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: var(--color-neutral-300);
+  line-height: var(--line-height-normal);
+}
+
+.footer-contact-item svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--color-neutral-400);
+}
+
+.footer-contact-item a {
+  color: var(--color-neutral-200);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-contact-item a:hover,
+.footer-contact-item a:focus-visible {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.footer-btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-white) !important;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  margin-top: var(--space-2);
+}
+
+.footer-btn-maps:hover,
+.footer-btn-maps:focus-visible {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-1px);
+}
+
 .footer-bottom {
   margin-top: var(--space-12);
   padding-top: var(--space-6);
@@ -1004,14 +1496,47 @@ textarea.form-control {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  transition: box-shadow var(--transition-normal);
+}
+
+.service-detail-block:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Alternância elegante de fundo entre os serviços */
+.service-detail-block--reversed,
+.service-detail-block:nth-child(even) {
+  background-color: var(--color-neutral-50);
+  border-color: var(--color-neutral-200);
+}
+
+.service-detail-block--reversed .service-detail-deliverables,
+.service-detail-block:nth-child(even) .service-detail-deliverables {
+  background-color: var(--color-white);
+  border-color: var(--color-neutral-200);
 }
 
 @media (min-width: 768px) {
   .service-detail-block {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.15fr;
     gap: var(--space-8);
     align-items: center;
+  }
+
+  .service-detail-block--reversed,
+  .service-detail-block:nth-child(even) {
+    grid-template-columns: 1.15fr 1fr;
+  }
+
+  .service-detail-block--reversed .service-detail-info,
+  .service-detail-block:nth-child(even) .service-detail-info {
+    order: 2;
+  }
+
+  .service-detail-block--reversed .service-detail-deliverables,
+  .service-detail-block:nth-child(even) .service-detail-deliverables {
+    order: 1;
   }
 }
 
@@ -1026,6 +1551,7 @@ textarea.form-control {
   border: 1px solid var(--color-neutral-200);
   border-radius: var(--radius-md);
   padding: var(--space-6);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
 .service-detail-deliverables h4 {
