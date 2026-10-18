@@ -33,9 +33,9 @@
   --color-warning: #b45309;
   --color-info:    #002855;
 
-  /* Tipografia */
   --font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-heading: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-serif: 'Lora', Georgia, 'Times New Roman', serif;
 
   /* Escala Tipográfica Fluida */
   --font-size-xs:   0.75rem;    /* 12px */
