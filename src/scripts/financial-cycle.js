@@ -59,7 +59,7 @@ export function initFinancialCycle() {
         contentBody.style.transform = 'translateY(3px)';
         
         setTimeout(() => {
-          if (stageBadge) stageBadge.textContent = `Etapa ${step.stepNumber} — ${step.stageName}`;
+          if (stageBadge) stageBadge.textContent = `— ETAPA ${step.stepNumber} — ${step.stageName}`;
           if (counter) counter.textContent = `${currentIndex + 1} de ${CYCLE_STEPS.length}`;
           if (stageTitle) stageTitle.textContent = step.title;
           if (stageDesc) stageDesc.textContent = step.description;
@@ -68,7 +68,7 @@ export function initFinancialCycle() {
           contentBody.style.transform = 'translateY(0)';
         }, 120);
       } else {
-        if (stageBadge) stageBadge.textContent = `Etapa ${step.stepNumber} — ${step.stageName}`;
+        if (stageBadge) stageBadge.textContent = `— ETAPA ${step.stepNumber} — ${step.stageName}`;
         if (counter) counter.textContent = `${currentIndex + 1} de ${CYCLE_STEPS.length}`;
         if (stageTitle) stageTitle.textContent = step.title;
         if (stageDesc) stageDesc.textContent = step.description;

@@ -10,6 +10,34 @@ export function initContactForm() {
 
   if (!form || !submitBtn) return;
 
+  // Pré-seleção inteligente do serviço a partir de parâmetros de URL (ex.: ?servico=contabilidade)
+  const serviceSelect = form.querySelector('#contact-service');
+  if (serviceSelect) {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const servicoParam = urlParams.get('servico');
+      if (servicoParam) {
+        const paramLower = servicoParam.toLowerCase();
+        for (let i = 0; i < serviceSelect.options.length; i++) {
+          const opt = serviceSelect.options[i];
+          const valLower = opt.value.toLowerCase();
+          if (
+            valLower.includes(paramLower) ||
+            (paramLower.includes('contab') && valLower.includes('contabilidade')) ||
+            (paramLower.includes('fisc') && valLower.includes('fiscalidade')) ||
+            ((paramLower.includes('finan') || paramLower.includes('gestao-finan')) && (valLower.includes('financeira') || valLower.includes('gestao financeira'))) ||
+            ((paramLower.includes('org') || paramLower.includes('empresarial')) && valLower.includes('organizacao'))
+          ) {
+            serviceSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    } catch {
+      // Degradação graciosa se URLSearchParams não estiver disponível
+    }
+  }
+
   submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
 

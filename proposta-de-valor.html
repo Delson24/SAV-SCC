@@ -16,14 +16,14 @@
   <meta property="og:description" content="Dados → Informação → Análise → Decisão: como transformamos números em capacidade de liderança para a sua empresa.">
   <meta property="og:site_name" content="SAV-SCC">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <!-- Favicon Oficial SAV-SCC -->
+  <link rel="icon" type="image/png" href="./img/logo/favicon.png">
+  <link rel="apple-touch-icon" href="./img/logo/favicon.png">
 
-
-  <!-- Tipografia do Google Fonts (Plus Jakarta Sans) -->
+  <!-- Tipografia do Google Fonts (Plus Jakarta Sans & Lora) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Folha de Estilos Principal -->
   <link rel="stylesheet" href="/src/styles/main.css">
@@ -32,15 +32,17 @@
   <!-- Link acessível para utilizadores de teclado -->
   <a href="#main-content" class="sr-only">Saltar para o conteúdo principal</a>
 
-  <!-- Cabeçalho e Navegação -->
+  <!-- ==========================================================================
+       Cabeçalho e Navegação Global
+       ========================================================================== -->
   <header class="site-header" id="site-header">
     <div class="container nav-container">
       <a href="./index.html" class="site-logo" aria-label="SAV-SCC — Página Inicial">
         <img 
-          src="./img/Logotipo.jpeg" 
+          src="./img/logo/Logotipo.jpeg" 
           alt="Logótipo SAV-SCC - Contabilidade, Fiscalidade e Gestão Financeira" 
-          width="180" 
-          height="52"
+          width="160" 
+          height="50"
           loading="eager"
         >
       </a>
@@ -70,241 +72,299 @@
         </ul>
 
         <div class="nav-cta-wrapper">
-          <a href="./contactos.html" class="btn btn-primary">Fale Connosco</a>
+          <a href="./contactos.html" class="btn-navbar-cta">Fale Connosco</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Conteúdo Principal -->
+  <!-- ==========================================================================
+       Conteúdo Principal da Página Proposta de Valor
+       ========================================================================== -->
   <main id="main-content">
     
-    <!-- Cabeçalho da Página -->
-    <section class="page-header" aria-labelledby="page-title">
-      <div class="container">
-        <div class="page-header-content">
-          <span class="text-eyebrow">Visão Estratégica</span>
-          <h1 class="page-header-title" id="page-title">Proposta de Valor</h1>
-          <p class="page-header-lead">
+    <!-- ==========================================================================
+         Hero da Página: Visão Estratégica
+         ========================================================================== -->
+    <section class="services-hero" id="visao-estrategica" aria-labelledby="page-title">
+      <div class="services-hero-bg-media" aria-hidden="true"></div>
+      <div class="services-hero-bg-overlay" aria-hidden="true"></div>
+
+      <div class="container services-hero-container">
+        <div class="services-hero-content">
+          <div class="mockup-eyebrow mockup-eyebrow--dark">
+            <span class="mockup-eyebrow-dash">—</span> VISÃO ESTRATÉGICA
+          </div>
+          <h1 class="services-hero-title" id="page-title">Proposta de Valor</h1>
+          <p class="services-hero-lead">
             Muito mais do que apenas cumprir formalidades: ajudamos os empresários a transformar os dados contabilísticos e fiscais numa ferramenta concreta de controlo, estabilidade e decisão.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- O Confronto: Cumprimento Passivo vs. Gestão Estruturada -->
-    <section class="section section-animate" aria-labelledby="confronto-title">
+    <!-- ==========================================================================
+         Secção 1: Cumprir Obrigações vs. Gerir com Informação
+         ========================================================================== -->
+    <section class="compare-section section-animate" id="ponto-de-partida" aria-labelledby="compare-heading">
       <div class="container">
-        <div class="section-header">
-          <span class="text-eyebrow">O Ponto de Partida</span>
-          <h2 id="confronto-title">Cumprir Obrigações vs. Gerir com Informação</h2>
-          <p>
-            Muitas empresas encaram a contabilidade apenas como uma obrigação legal onerosa. Na SAV-SCC, acreditamos que essa perspetiva desperdiça o ativo mais valioso de uma empresa: a sua própria informação económica.
-          </p>
+        
+        <!-- Cabeçalho em 2 Colunas -->
+        <div class="compare-header-grid">
+          <div>
+            <div class="mockup-eyebrow mockup-eyebrow--light">
+              <span class="mockup-eyebrow-dash">—</span> O PONTO DE PARTIDA
+            </div>
+            <h2 class="compare-header-title" id="compare-heading">Cumprir Obrigações vs. Gerir com Informação</h2>
+          </div>
+          <div>
+            <p class="compare-header-lead">
+              Muitas empresas encaram a contabilidade apenas como uma obrigação legal onerosa. Na SAV-SCC, acreditamos que essa perspetiva desperdiça o ativo mais valioso de uma empresa: a sua própria informação económica.
+            </p>
+          </div>
         </div>
 
-        <div class="grid grid-cols-2" style="max-width: 960px; margin: 0 auto var(--space-12) auto;">
-          <div class="card" style="border-left: 4px solid var(--color-neutral-400);">
-            <h3 style="font-size: var(--font-size-lg); color: var(--color-neutral-700); margin-bottom: var(--space-3);">
-              O Cenário de Cumprimento Passivo
-            </h3>
-            <ul class="service-features-list" style="margin-top: 0; padding-top: 0; border-top: none;">
-              <li class="service-feature-item">
-                <span style="color: var(--color-neutral-500); font-weight: bold; margin-right: 4px;">&bull;</span>
+        <!-- Comparativo Visual com Selo Central "vs." -->
+        <div class="compare-cards-wrapper">
+          
+          <!-- Cartão Esquerdo: O Cenário de Cumprimento Passivo -->
+          <div class="compare-card-passive">
+            <h3 class="compare-card-passive-title">O Cenário de Cumprimento Passivo</h3>
+            <ul class="compare-list-passive">
+              <li>
+                <span class="passive-square" aria-hidden="true"></span>
                 <span>Documentos reunidos à pressa apenas na data-limite de entrega do imposto.</span>
               </li>
-              <li class="service-feature-item">
-                <span style="color: var(--color-neutral-500); font-weight: bold; margin-right: 4px;">&bull;</span>
+              <li>
+                <span class="passive-square" aria-hidden="true"></span>
                 <span>Incerteza permanente sobre o valor real das obrigações fiscais a pagar.</span>
               </li>
-              <li class="service-feature-item">
-                <span style="color: var(--color-neutral-500); font-weight: bold; margin-right: 4px;">&bull;</span>
+              <li>
+                <span class="passive-square" aria-hidden="true"></span>
                 <span>Desconhecimento da rentabilidade de cada produto, serviço ou departamento.</span>
               </li>
-              <li class="service-feature-item">
-                <span style="color: var(--color-neutral-500); font-weight: bold; margin-right: 4px;">&bull;</span>
+              <li>
+                <span class="passive-square" aria-hidden="true"></span>
                 <span>Decisões de negócio tomadas com base em intuição sem suporte numérico.</span>
               </li>
             </ul>
           </div>
 
-          <div class="card" style="border-left: 4px solid var(--color-primary-700); background-color: var(--color-neutral-50);">
-            <h3 style="font-size: var(--font-size-lg); color: var(--color-primary-900); margin-bottom: var(--space-3);">
-              O Modelo Estruturado com a SAV-SCC
-            </h3>
-            <ul class="service-features-list" style="margin-top: 0; padding-top: 0; border-top: none;">
-              <li class="service-feature-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <!-- Crachá Central vs. -->
+          <div class="compare-vs-badge" aria-hidden="true">vs.</div>
+
+          <!-- Cartão Direito: O Modelo Estruturado com a SAV-SCC -->
+          <div class="compare-card-active">
+            <h3 class="compare-card-active-title">O Modelo Estruturado com a SAV-SCC</h3>
+            <ul class="compare-list-active">
+              <li>
+                <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>Registos contabilísticos organizados, classificados e atualizados com regularidade.</span>
               </li>
-              <li class="service-feature-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <li>
+                <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>Planeamento fiscal preventivo que elimina surpresas e penalizações legais.</span>
               </li>
-              <li class="service-feature-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <li>
+                <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>Clareza sobre custos fixos, margens de rentabilidade e capacidade de tesouraria.</span>
               </li>
-              <li class="service-feature-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <li>
+                <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 <span>Informação rigorosa para negociar com parceiros, bancos e clientes.</span>
               </li>
             </ul>
           </div>
-        </div>
 
-        <!-- O Ciclo de Inteligência Financeira Interativo -->
-        <div class="cycle-interactive-container" role="region" aria-label="Apresentação do Ciclo de Inteligência Financeira">
-          <div class="section-header" style="margin-bottom: var(--space-6);">
-            <span class="text-eyebrow">Metodologia</span>
-            <h3 style="font-size: var(--font-size-2xl); color: var(--color-primary-900); margin-bottom: var(--space-2);">
-              O Ciclo de Inteligência Financeira
-            </h3>
-            <p style="font-size: var(--font-size-sm); color: var(--color-neutral-600); max-width: 720px; margin: 0 auto;">
-              DADOS &rarr; INFORMAÇÃO &rarr; ANÁLISE &rarr; DECISÃO: o método que transforma elementos dispersos em capacidade de liderança empresarial.
-            </p>
-          </div>
-
-          <!-- Citação institucional do diferencial -->
-          <div class="pipeline-differential-quote">
-            <p>
-              “A contabilidade deve ir além do cumprimento das obrigações legais. A informação financeira organizada ajuda o empresário a compreender melhor o negócio, identificar riscos, controlar custos, planear investimentos e tomar decisões com maior segurança.”
-            </p>
-          </div>
-
-          <!-- Barra de etapas clicáveis do ciclo (Navegação superior) -->
-          <div class="cycle-steps-nav" role="tablist" aria-label="Etapas do ciclo">
-            <button type="button" class="cycle-step-tab is-active" role="tab" aria-selected="true" aria-controls="cycle-content-body-proposta" aria-label="Etapa 1: Dados">
-              <span class="cycle-step-num">01</span>
-              <span class="cycle-step-name">Dados</span>
-            </button>
-            <span class="cycle-step-divider" aria-hidden="true">&rarr;</span>
-            <button type="button" class="cycle-step-tab" role="tab" aria-selected="false" aria-controls="cycle-content-body-proposta" aria-label="Etapa 2: Informação">
-              <span class="cycle-step-num">02</span>
-              <span class="cycle-step-name">Informação</span>
-            </button>
-            <span class="cycle-step-divider" aria-hidden="true">&rarr;</span>
-            <button type="button" class="cycle-step-tab" role="tab" aria-selected="false" aria-controls="cycle-content-body-proposta" aria-label="Etapa 3: Análise">
-              <span class="cycle-step-num">03</span>
-              <span class="cycle-step-name">Análise</span>
-            </button>
-            <span class="cycle-step-divider" aria-hidden="true">&rarr;</span>
-            <button type="button" class="cycle-step-tab" role="tab" aria-selected="false" aria-controls="cycle-content-body-proposta" aria-label="Etapa 4: Decisão">
-              <span class="cycle-step-num">04</span>
-              <span class="cycle-step-name">Decisão</span>
-            </button>
-          </div>
-
-          <!-- Cartão da etapa ativa (apresenta uma etapa de cada vez) -->
-          <div class="cycle-display-card" aria-live="polite">
-            <div class="cycle-card-top-bar">
-              <span class="cycle-stage-badge">Etapa 01 — DADOS</span>
-              <span class="cycle-counter" aria-label="Posição atual no ciclo">1 de 4</span>
-            </div>
-
-            <div class="cycle-content-body" id="cycle-content-body-proposta">
-              <h3 class="cycle-stage-title">Dados financeiros</h3>
-              <p class="cycle-stage-desc">
-                Reunimos e organizamos os dados contabilísticos, financeiros e administrativos relevantes para compreender a realidade do negócio.
-              </p>
-            </div>
-
-            <!-- Controlos de navegação: Anterior e Seguinte -->
-            <div class="cycle-controls">
-              <button 
-                type="button" 
-                class="btn btn-outline cycle-nav-btn cycle-prev-btn" 
-                disabled 
-                aria-disabled="true" 
-                aria-label="Ir para a etapa anterior"
-              >
-                <span aria-hidden="true">&larr;</span>
-                <span>Anterior</span>
-              </button>
-
-              <div class="cycle-progress-indicators" aria-hidden="true">
-                <span class="cycle-dot is-active"></span>
-                <span class="cycle-dot"></span>
-                <span class="cycle-dot"></span>
-                <span class="cycle-dot"></span>
-              </div>
-
-              <button 
-                type="button" 
-                class="btn btn-primary cycle-nav-btn cycle-next-btn" 
-                aria-disabled="false" 
-                aria-label="Ir para a etapa seguinte"
-              >
-                <span>Seguinte</span>
-                <span aria-hidden="true">&rarr;</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 Pilares de Benefícios Reais -->
-        <div class="section-header" style="margin-top: var(--space-16);">
-          <span class="text-eyebrow">Resultados Práticos</span>
-          <h2>Os Quatro Pilares do Nosso Apoio</h2>
-          <p>O impacto prático que o acompanhamento da SAV-SCC traz para o dia a dia da sua organização.</p>
-        </div>
-
-        <div class="grid grid-cols-4 pillars-asymmetric-grid" aria-label="Quatro Pilares do Nosso Apoio">
-          <div class="value-pillar-card pillar-card-asymmetric pillar-pos-top-1" data-pillar="1">
-            <div class="value-pillar-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-            </div>
-            <h3>1. Organização e Disciplina</h3>
-            <p>
-              Fim dos documentos dispersos e da incerteza sobre o que foi ou não registado. A sua empresa mantém um arquivo contabilístico estruturado e transparente em qualquer altura do ano.
-            </p>
-          </div>
-
-          <div class="value-pillar-card pillar-card-asymmetric pillar-pos-bottom-1" data-pillar="2">
-            <div class="value-pillar-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-            </div>
-            <h3>2. Clareza de Custos e Receitas</h3>
-            <p>
-              Conheça exatamente o peso dos custos fixos e variáveis. Identifique áreas com desperdício e compreenda que linhas de negócio geram verdadeira rentabilidade líquida para a empresa.
-            </p>
-          </div>
-
-          <div class="value-pillar-card pillar-card-asymmetric pillar-pos-top-2" data-pillar="3">
-            <div class="value-pillar-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            </div>
-            <h3>3. Planeamento de Tesouraria</h3>
-            <p>
-              Antecipe obrigações fiscais e salariais com semanas de antecedência. O planeamento orçamental previne crises de liquidez e assegura tranquilidade operacional para os gestores.
-            </p>
-          </div>
-
-          <div class="value-pillar-card pillar-card-asymmetric pillar-pos-bottom-2" data-pillar="4">
-            <div class="value-pillar-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            </div>
-            <h3>4. Prevenção de Riscos e Decisão</h3>
-            <p>
-              Redução drástica do risco de penalizações fiscais decorrentes de prazos esquecidos ou enquadramentos incorretos. Suporte consultivo experiente sempre que precisar de decidir.
-            </p>
-          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- Chamada para Ação -->
-    <section class="section section-alt section-animate" style="padding-top: var(--space-8); padding-bottom: var(--space-12);">
+    <!-- ==========================================================================
+         Secção 2: O Ciclo de Inteligência Financeira (Metodologia)
+         ========================================================================== -->
+    <section class="value-prop-cycle-section section-animate" id="metodologia" aria-labelledby="cycle-title">
       <div class="container">
-        <div class="cta-banner">
-          <h2>Pronto para elevar o controlo financeiro da sua empresa?</h2>
-          <p>
+        
+        <!-- Cabeçalho da Metodologia -->
+        <div class="value-prop-cycle-header">
+          <div class="mockup-eyebrow mockup-eyebrow--dark">
+            <span class="mockup-eyebrow-dash">—</span> METODOLOGIA
+          </div>
+          <h2 class="value-prop-cycle-title" id="cycle-title">O Ciclo de Inteligência Financeira</h2>
+          <p class="value-prop-cycle-subtitle">
+            DADOS &rarr; INFORMAÇÃO &rarr; ANÁLISE &rarr; DECISÃO: o método que transforma elementos dispersos em capacidade de liderança empresarial.
+          </p>
+        </div>
+
+        <!-- Grelha com Citação Institucional à Esquerda e Componente à Direita -->
+        <div class="value-prop-cycle-grid">
+          
+          <!-- Coluna Esquerda: Citação Institucional -->
+          <div class="value-prop-quote-block">
+            <blockquote>
+              “A contabilidade deve ir além do cumprimento das obrigações legais. A informação financeira organizada ajuda o empresário a compreender melhor o negócio, identificar riscos, controlar custos, planear investimentos e tomar decisões com maior segurança.”
+            </blockquote>
+          </div>
+
+          <!-- Coluna Direita: Componente Interativo do Ciclo -->
+          <div class="cycle-interactive-container" role="region" aria-label="Apresentação do Ciclo de Inteligência Financeira">
+            
+            <!-- Linha de Navegação pelas 4 Etapas (01 a 04) -->
+            <div class="cycle-timeline-nav" role="tablist" aria-label="Etapas do ciclo">
+              <div class="cycle-timeline-line" aria-hidden="true"></div>
+
+              <button type="button" class="cycle-step-tab is-active" role="tab" aria-selected="true" aria-controls="cycle-content-body-proposta" aria-label="Etapa 1: Dados">
+                <span class="cycle-step-num">01</span>
+                <span class="cycle-step-name">DADOS</span>
+              </button>
+
+              <button type="button" class="cycle-step-tab" role="tab" aria-selected="false" aria-controls="cycle-content-body-proposta" aria-label="Etapa 2: Informação">
+                <span class="cycle-step-num">02</span>
+                <span class="cycle-step-name">INFORMAÇÃO</span>
+              </button>
+
+              <button type="button" class="cycle-step-tab" role="tab" aria-selected="false" aria-controls="cycle-content-body-proposta" aria-label="Etapa 3: Análise">
+                <span class="cycle-step-num">03</span>
+                <span class="cycle-step-name">ANÁLISE</span>
+              </button>
+
+              <button type="button" class="cycle-step-tab" role="tab" aria-selected="false" aria-controls="cycle-content-body-proposta" aria-label="Etapa 4: Decisão">
+                <span class="cycle-step-num">04</span>
+                <span class="cycle-step-name">DECISÃO</span>
+              </button>
+            </div>
+
+            <!-- Cartão da Etapa Ativa -->
+            <div class="cycle-display-card" aria-live="polite">
+              <div class="cycle-card-top-bar">
+                <span class="cycle-stage-badge">— ETAPA 01 — DADOS</span>
+                <span class="cycle-counter" aria-label="Posição atual no ciclo">1 de 4</span>
+              </div>
+
+              <div class="cycle-content-body" id="cycle-content-body-proposta">
+                <h3 class="cycle-stage-title">Dados financeiros</h3>
+                <p class="cycle-stage-desc">
+                  Reunimos e organizamos os dados contabilísticos, financeiros e administrativos relevantes para compreender a realidade do negócio.
+                </p>
+              </div>
+
+              <!-- Controlos de Navegação: Anterior / Indicadores / Seguinte -->
+              <div class="cycle-controls">
+                <button 
+                  type="button" 
+                  class="cycle-nav-btn cycle-prev-btn" 
+                  disabled 
+                  aria-disabled="true" 
+                  aria-label="Ir para a etapa anterior"
+                >
+                  <span>&larr; Anterior</span>
+                </button>
+
+                <div class="cycle-progress-indicators" aria-hidden="true">
+                  <span class="cycle-dot is-active"></span>
+                  <span class="cycle-dot"></span>
+                  <span class="cycle-dot"></span>
+                  <span class="cycle-dot"></span>
+                </div>
+
+                <button 
+                  type="button" 
+                  class="cycle-nav-btn cycle-next-btn btn-cycle-next" 
+                  aria-disabled="false" 
+                  aria-label="Ir para a etapa seguinte"
+                >
+                  <span>Seguinte &rarr;</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Secção 3: Os Quatro Pilares do Nosso Apoio (Resultados Práticos)
+         ========================================================================== -->
+    <section class="pillars-section section-animate" id="pilares" aria-labelledby="pillars-heading">
+      <div class="container">
+        
+        <!-- Cabeçalho em 2 Colunas -->
+        <div class="pillars-header-grid">
+          <div>
+            <div class="mockup-eyebrow mockup-eyebrow--light">
+              <span class="mockup-eyebrow-dash">—</span> RESULTADOS PRÁTICOS
+            </div>
+            <h2 class="pillars-header-title" id="pillars-heading">Os Quatro Pilares do Nosso Apoio</h2>
+          </div>
+          <div>
+            <p class="pillars-header-lead">
+              O impacto prático que o acompanhamento da SAV-SCC traz para o dia a dia da sua organização.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grelha 2x2 com Linha de Separação Superior -->
+        <div class="pillars-grid-2x2">
+          
+          <!-- Pilar 1 -->
+          <div class="pillar-item-row">
+            <div class="pillar-item-num" aria-hidden="true">1</div>
+            <h3 class="pillar-item-title">Organização e Disciplina</h3>
+            <p class="pillar-item-text">
+              Fim dos documentos dispersos e da incerteza sobre o que foi ou não registado. A sua empresa mantém um arquivo contabilístico estruturado e transparente em qualquer altura do ano.
+            </p>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="pillar-item-row">
+            <div class="pillar-item-num" aria-hidden="true">2</div>
+            <h3 class="pillar-item-title">Clareza de Custos e Receitas</h3>
+            <p class="pillar-item-text">
+              Conheça exatamente o peso dos custos fixos e variáveis. Identifique áreas com desperdício e compreenda que linhas de negócio geram verdadeira rentabilidade líquida para a empresa.
+            </p>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="pillar-item-row">
+            <div class="pillar-item-num" aria-hidden="true">3</div>
+            <h3 class="pillar-item-title">Planeamento de Tesouraria</h3>
+            <p class="pillar-item-text">
+              Antecipe obrigações fiscais e salariais com semanas de antecedência. O planeamento orçamental previne crises de liquidez e assegura tranquilidade operacional para os gestores.
+            </p>
+          </div>
+
+          <!-- Pilar 4 -->
+          <div class="pillar-item-row">
+            <div class="pillar-item-num" aria-hidden="true">4</div>
+            <h3 class="pillar-item-title">Prevenção de Riscos e Decisão</h3>
+            <p class="pillar-item-text">
+              Redução drástica do risco de penalizações fiscais decorrentes de prazos esquecidos ou enquadramentos incorretos. Suporte consultivo experiente sempre que precisar de decidir.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Secção 4: Banner CTA Institucional Contido
+         ========================================================================== -->
+    <section class="services-cta-section section-animate" aria-labelledby="cta-heading-proposta">
+      <div class="container">
+        <div class="services-cta-card">
+          <h2 class="services-cta-title" id="cta-heading-proposta">Pronto para elevar o controlo financeiro da sua empresa?</h2>
+          <p class="services-cta-lead">
             Marque uma reunião connosco e descubra como podemos aplicar esta metodologia à realidade operacional do seu negócio.
           </p>
-          <div class="cta-banner-actions">
-            <a href="./contactos.html" class="btn btn-white">Solicitar Reunião de Apresentação</a>
-            <a href="./servicos.html" class="btn btn-outline" style="color: var(--color-white); border-color: rgba(255, 255, 255, 0.5);">Explorar Serviços</a>
+          <div class="services-cta-actions">
+            <a href="./contactos.html#contact-form" class="btn-cta-solid">Solicitar Reunião de Apresentação</a>
+            <a href="./servicos.html" class="btn-cta-outline">Explorar Serviços</a>
           </div>
         </div>
       </div>
@@ -312,7 +372,9 @@
 
   </main>
 
-  <!-- Rodapé Institucional -->
+  <!-- ==========================================================================
+       Rodapé Institucional (Consistente com todas as páginas)
+       ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-8); align-items: flex-start;">
