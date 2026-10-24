@@ -1845,15 +1845,17 @@ textarea.form-control {
   transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.section-animate.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.section-animate.is-visible,
+.section-animate.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
-/* Garantir que o conteúdo é visível se o JS falhar */
-.no-js .section-animate {
-  opacity: 1;
-  transform: none;
+/* Garantir que o conteúdo é visível se o JS falhar ou não estiver ativo */
+.no-js .section-animate,
+html:not(.js-active) .section-animate {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* ==========================================================================

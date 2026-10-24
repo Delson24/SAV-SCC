@@ -1,0 +1,700 @@
+/**
+ * SAV-SCC, SU, LDA. — Folha de Estilos de Motion Design
+ * Direção criativa: "Revelar, não animar. O movimento de um relatório bem encadernado a abrir-se."
+ * Cumpre integralmente docs/Direção de Motion Design — SAV-SCC.md
+ * 
+ * Princípio fundamental: Conteúdo Primeiro (Content First).
+ * Nenhum elemento pode ficar invisível caso uma animação não seja executada.
+ * Apenas elementos confirmados abaixo da dobra recebem a classe .reveal-init pelo JS.
+ */
+
+/* ==========================================================================
+   0. Baseline & Progressive Enhancement
+   ========================================================================== */
+
+/* Por omissão, TODO o conteúdo está 100% visível, legível e no seu fluxo natural */
+[data-reveal],
+.line-inner,
+.service-band,
+.service-m2-row,
+.about-value-row,
+.compare-cards-wrapper,
+.compare-card-passive,
+.compare-card-active,
+.compare-vs-badge,
+.pillars-grid-2x2,
+.services-cta-card,
+.cta-banner,
+.section-animate.is-revealed,
+.section-animate.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ==========================================================================
+   1. Padrões de Revelação (P1, P2, P3, P5, P6)
+   Ativados EXCLUSIVAMENTE quando o JS adiciona .reveal-init aos elementos abaixo da dobra
+   ========================================================================== */
+
+/* P2 · Rise (Bloco que sobe com fade) */
+[data-reveal="rise"].reveal-init,
+.reveal-rise.reveal-init {
+  opacity: 0;
+  transform: translateY(var(--rise-block, 28px));
+  transition: opacity var(--dur-enter, 800ms) var(--ease-out),
+              transform var(--dur-enter, 800ms) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+[data-reveal="rise"].is-revealed,
+.reveal-rise.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* P1 · Lines (Título por Linhas) */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  line-height: inherit;
+}
+
+.line-inner.reveal-init {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 900ms var(--ease-out);
+  will-change: transform;
+}
+
+.line-inner.is-revealed,
+.is-revealed .line-inner {
+  transform: translateY(0) !important;
+}
+
+/* Subtítulo associado ao P1 */
+[data-reveal="subtitle"].reveal-init {
+  opacity: 0;
+  transform: translateY(var(--rise-title, 20px));
+  transition: opacity 800ms var(--ease-out),
+              transform 800ms var(--ease-out);
+  transition-delay: 200ms;
+  will-change: opacity, transform;
+}
+
+[data-reveal="subtitle"].is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* P3 · Mask (Máscara de Imagem que assenta suavemente sem corte destrutivo) */
+[data-reveal="mask"].reveal-init,
+.reveal-mask.reveal-init {
+  opacity: 0;
+  transform: translateY(20px);
+  overflow: hidden;
+  border-radius: var(--radius-lg, 12px);
+  transition: opacity var(--dur-mask, 1000ms) var(--ease-out),
+              transform var(--dur-mask, 1000ms) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+[data-reveal="mask"].is-revealed,
+.reveal-mask.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+[data-reveal="mask"] img,
+.reveal-mask img {
+  transition: transform var(--dur-scale, 1400ms) var(--ease-out);
+}
+
+[data-reveal="mask"].reveal-init:not(.is-revealed) img,
+.reveal-mask.reveal-init:not(.is-revealed) img {
+  transform: scale(1.06);
+}
+
+[data-reveal="mask"].is-revealed img,
+.reveal-mask.is-revealed img {
+  transform: scale(1);
+}
+
+/* P5 · Rule (Linhas e réguas que se desenham da esquerda) */
+[data-reveal="rule"].reveal-init {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 750ms var(--ease-in-out);
+  will-change: transform;
+}
+
+[data-reveal="rule"].is-revealed {
+  transform: scaleX(1) !important;
+}
+
+.mockup-eyebrow .mockup-eyebrow-dash {
+  display: inline-block;
+  transform-origin: left center;
+  transition: transform 600ms var(--ease-in-out);
+}
+
+.mockup-eyebrow.reveal-init .mockup-eyebrow-dash {
+  transform: scaleX(0);
+}
+
+.mockup-eyebrow.is-revealed .mockup-eyebrow-dash {
+  transform: scaleX(1);
+}
+
+/* P6 · Stagger (Filhos com P2 e atraso incremental) */
+[data-reveal="stagger"].reveal-init > * {
+  opacity: 0;
+  transform: translateY(var(--rise-block, 28px));
+  transition: opacity var(--dur-enter, 800ms) var(--ease-out),
+              transform var(--dur-enter, 800ms) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+[data-reveal="stagger"].is-revealed > * {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+[data-reveal="stagger"].is-revealed > *:nth-child(1) { transition-delay: 0ms; }
+[data-reveal="stagger"].is-revealed > *:nth-child(2) { transition-delay: var(--stagger-card, 100ms); }
+[data-reveal="stagger"].is-revealed > *:nth-child(3) { transition-delay: calc(var(--stagger-card, 100ms) * 2); }
+[data-reveal="stagger"].is-revealed > *:nth-child(4) { transition-delay: calc(var(--stagger-card, 100ms) * 3); }
+[data-reveal="stagger"].is-revealed > *:nth-child(5) { transition-delay: calc(var(--stagger-card, 100ms) * 4); }
+
+/* Preservação do alinhamento desfasado nos cartões 02 e 04 da Homepage */
+@media (min-width: 1025px) {
+  .value-prop-m3-cards-grid.is-revealed > .value-prop-m3-card-staggered {
+    transform: translateY(38px) !important;
+  }
+  .value-prop-m3-cards-grid.is-revealed > .value-prop-m3-card-staggered:hover {
+    transform: translateY(30px) !important;
+  }
+}
+
+/* Stagger específico para linhas de lista (60 ms entre si) */
+[data-reveal="stagger-rows"].reveal-init > * {
+  opacity: 0;
+  transform: translateY(var(--rise-small, 12px));
+  transition: opacity 600ms var(--ease-out),
+              transform 600ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+[data-reveal="stagger-rows"].is-revealed > * {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+[data-reveal="stagger-rows"].is-revealed > *:nth-child(1) { transition-delay: 0ms; }
+[data-reveal="stagger-rows"].is-revealed > *:nth-child(2) { transition-delay: 60ms; }
+[data-reveal="stagger-rows"].is-revealed > *:nth-child(3) { transition-delay: 120ms; }
+[data-reveal="stagger-rows"].is-revealed > *:nth-child(4) { transition-delay: 180ms; }
+[data-reveal="stagger-rows"].is-revealed > *:nth-child(5) { transition-delay: 240ms; }
+
+/* Ticks desenhados suavemente nas checklists de entregáveis */
+.service-deliverables-checklist .check-icon polyline,
+.compare-list-active .check-icon polyline {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 300ms var(--ease-in-out);
+}
+
+.reveal-init .service-deliverables-checklist .check-icon polyline,
+.reveal-init .compare-list-active .check-icon polyline {
+  stroke-dashoffset: 24;
+}
+
+.is-revealed .service-deliverables-checklist .check-icon polyline,
+.is-revealed .compare-list-active .check-icon polyline {
+  stroke-dashoffset: 0 !important;
+}
+
+/* ==========================================================================
+   2. Homepage — Hero Orquestrado
+   ========================================================================== */
+
+.hero-m1-bg-media {
+  transition: transform 2400ms var(--ease-out);
+  will-change: transform;
+}
+
+.hero-m1-bg-media.is-settled {
+  transform: scale(1) translateY(var(--hero-parallax-y, 0px));
+}
+
+.hero-m1-pillars-bar {
+  position: relative;
+}
+
+.hero-m1-pillars-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.14);
+  transform-origin: left center;
+  transition: transform 700ms var(--ease-in-out);
+}
+
+.hero-m1-pillars-bar.reveal-init::before {
+  transform: scaleX(0);
+}
+
+.hero-m1-pillars-bar.is-revealed::before {
+  transform: scaleX(1);
+}
+
+.hero-m1-pillars-bar.reveal-init .hero-m1-pillar-item {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 700ms var(--ease-out),
+              transform 700ms var(--ease-out);
+}
+
+.hero-m1-pillars-bar.is-revealed .hero-m1-pillar-item {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.hero-m1-pillars-bar.is-revealed .hero-m1-pillar-item:nth-child(1) { transition-delay: 100ms; }
+.hero-m1-pillars-bar.is-revealed .hero-m1-pillar-item:nth-child(2) { transition-delay: 200ms; }
+.hero-m1-pillars-bar.is-revealed .hero-m1-pillar-item:nth-child(3) { transition-delay: 300ms; }
+
+/* ==========================================================================
+   3. Proposta de Valor — Comparativo & Pilares
+   ========================================================================== */
+
+.compare-cards-wrapper.reveal-init .compare-card-passive {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--dur-enter, 800ms) var(--ease-out),
+              transform var(--dur-enter, 800ms) var(--ease-out);
+}
+
+.compare-cards-wrapper.is-revealed .compare-card-passive {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.compare-cards-wrapper.reveal-init .compare-card-active {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--dur-enter, 800ms) var(--ease-out),
+              transform var(--dur-enter, 800ms) var(--ease-out);
+  transition-delay: 150ms;
+}
+
+.compare-cards-wrapper.is-revealed .compare-card-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.compare-cards-wrapper.reveal-init .compare-vs-badge {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.85);
+  transition: opacity 600ms var(--ease-out),
+              transform 600ms var(--ease-out);
+  transition-delay: 350ms;
+}
+
+.compare-cards-wrapper.is-revealed .compare-vs-badge {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* Pilares 2x2 — Linha Marinho Superior */
+.pillar-item-row {
+  position: relative;
+}
+
+.pillar-item-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #001733;
+  transform-origin: left center;
+  transition: transform 700ms var(--ease-in-out);
+}
+
+.pillars-grid-2x2.reveal-init .pillar-item-row::before {
+  transform: scaleX(0);
+}
+
+.pillars-grid-2x2.is-revealed .pillar-item-row:nth-child(1)::before { transform: scaleX(1); transition-delay: 0ms; }
+.pillars-grid-2x2.is-revealed .pillar-item-row:nth-child(2)::before { transform: scaleX(1); transition-delay: 100ms; }
+.pillars-grid-2x2.is-revealed .pillar-item-row:nth-child(3)::before { transform: scaleX(1); transition-delay: 200ms; }
+.pillars-grid-2x2.is-revealed .pillar-item-row:nth-child(4)::before { transform: scaleX(1); transition-delay: 300ms; }
+
+/* ==========================================================================
+   4. Sobre Nós — Typewriter & Sete Valores
+   ========================================================================== */
+
+.about-hero-slogan-wrap {
+  min-height: 2.8em;
+  display: block;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.15em;
+  background-color: #a9b6c6;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  animation: typewriterBlink 0.8s step-end infinite;
+}
+
+.typewriter-cursor.is-done {
+  opacity: 0;
+  transition: opacity 1200ms var(--ease-out);
+  animation: none;
+}
+
+@keyframes typewriterBlink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Sete Valores — Linha superior desenha-se */
+.about-value-row {
+  position: relative;
+}
+
+.about-value-row::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--color-primary-800);
+  transform-origin: left center;
+  transition: transform 700ms var(--ease-in-out);
+}
+
+.about-value-row.reveal-init::before {
+  transform: scaleX(0);
+}
+
+.about-value-row.is-revealed::before {
+  transform: scaleX(1);
+}
+
+/* ==========================================================================
+   5. Contactos — Cartões e Interações
+   ========================================================================== */
+
+.contact-quick-grid.is-revealed > *:nth-child(1) { transition-delay: 300ms; }
+.contact-quick-grid.is-revealed > *:nth-child(2) { transition-delay: 400ms; }
+.contact-quick-grid.is-revealed > *:nth-child(3) { transition-delay: 500ms; }
+.contact-quick-grid.is-revealed > *:nth-child(4) { transition-delay: 600ms; }
+
+/* Card de localização hover zoom da imagem de fundo */
+.contact-location-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms var(--ease-ui), box-shadow 250ms var(--ease-ui);
+}
+
+.contact-location-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(135deg, rgba(0, 19, 40, 0.92) 0%, rgba(0, 31, 64, 0.95) 100%), url('/img/hero-maputo.jpg');
+  background-size: cover;
+  background-position: center;
+  transition: transform 600ms var(--ease-out);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact-location-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (hover: hover) {
+  .contact-location-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -6px rgba(0, 20, 45, 0.35);
+  }
+  .contact-location-card:hover::before {
+    transform: scale(1.04);
+  }
+}
+
+/* ==========================================================================
+   6. Ciclo de Inteligência Financeira (Secção 5.1)
+   ========================================================================== */
+
+.cycle-display-card {
+  min-height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cycle-content-body {
+  transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.cycle-content-body.is-entering {
+  transition: opacity 360ms var(--ease-out), transform 360ms var(--ease-out);
+}
+
+.cycle-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-neutral-300);
+  transition: width 300ms var(--ease-out), background-color 300ms var(--ease-out);
+}
+
+.cycle-dot.is-active {
+  width: 28px;
+  background-color: var(--color-primary-900);
+}
+
+/* Linha conectora de progresso no Ciclo */
+.cycle-timeline-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.cycle-timeline-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--cycle-progress, 0%);
+  background-color: #ffffff;
+  transition: width 500ms var(--ease-in-out);
+}
+
+.cycle-step-tab .cycle-step-num {
+  transition: background-color 300ms var(--ease-ui),
+              border-color 300ms var(--ease-ui),
+              color 300ms var(--ease-ui),
+              box-shadow 300ms var(--ease-ui) !important;
+}
+
+.cycle-step-tab .cycle-step-name {
+  transition: color 200ms var(--ease-ui) !important;
+}
+
+/* ==========================================================================
+   7. Micro-interações nos Elementos Interativos (Secção 6)
+   ========================================================================== */
+
+/* Botões Primários */
+.btn-primary,
+.btn-hero-solid,
+.btn-quick-primary,
+.btn-location-white,
+.btn-navbar-cta,
+.btn-cta-solid {
+  transition: background-color var(--dur-micro, 180ms) var(--ease-ui),
+              transform var(--dur-micro, 180ms) var(--ease-ui),
+              box-shadow var(--dur-micro, 180ms) var(--ease-ui);
+}
+
+@media (hover: hover) {
+  .btn-primary:hover,
+  .btn-hero-solid:hover,
+  .btn-quick-primary:hover,
+  .btn-location-white:hover,
+  .btn-navbar-cta:hover,
+  .btn-cta-solid:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.btn-primary:active,
+.btn-hero-solid:active,
+.btn-quick-primary:active,
+.btn-location-white:active,
+.btn-navbar-cta:active,
+.btn-cta-solid:active {
+  transform: scale(0.98);
+  transition-duration: 100ms;
+}
+
+/* Setas nos botões e ligações com deslocação suave de 4 px */
+.btn-primary svg,
+.btn-quick-primary svg,
+.btn-location-white svg,
+.service-action-link svg,
+.service-m2-link svg,
+.hero-m1-link svg {
+  transition: transform var(--dur-micro, 180ms) var(--ease-ui);
+}
+
+@media (hover: hover) {
+  .btn-primary:hover svg,
+  .btn-quick-primary:hover svg,
+  .btn-location-white:hover svg,
+  .service-action-link:hover svg,
+  .service-m2-link:hover svg,
+  .hero-m1-link:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+/* Botões de Contorno */
+.btn-outline,
+.btn-outline-white,
+.btn-quick-outline,
+.btn-service-action,
+.btn-cta-outline {
+  transition: background-color var(--dur-micro, 180ms) var(--ease-ui),
+              color var(--dur-micro, 180ms) var(--ease-ui),
+              border-color var(--dur-micro, 180ms) var(--ease-ui),
+              transform var(--dur-micro, 180ms) var(--ease-ui);
+}
+
+.btn-outline:active,
+.btn-outline-white:active,
+.btn-quick-outline:active,
+.btn-service-action:active,
+.btn-cta-outline:active {
+  transform: scale(0.98);
+  transition-duration: 100ms;
+}
+
+/* Cartões Interativos */
+.service-card,
+.contact-quick-card,
+.value-pillar-card,
+.about-target-card,
+.about-approach-col {
+  transition: transform 250ms var(--ease-ui),
+              box-shadow 250ms var(--ease-ui),
+              border-color 250ms var(--ease-ui);
+}
+
+@media (hover: hover) {
+  .service-card:hover,
+  .contact-quick-card:hover,
+  .value-pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -8px rgba(0, 40, 85, 0.14);
+  }
+}
+
+/* Sublinhado dinâmico dos itens da Navbar a crescer da esquerda (Secção 4.1 O) */
+.nav-link::after {
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 250ms var(--ease-ui);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-link.is-active::after {
+  transform: scaleX(1) !important;
+}
+
+/* Campos de Formulário — anel de 3 px suave */
+.form-control {
+  transition: border-color 200ms var(--ease-ui),
+              box-shadow 200ms var(--ease-ui);
+}
+
+.form-control:focus {
+  border-color: #001733;
+  box-shadow: 0 0 0 3px rgba(0, 23, 51, 0.12);
+}
+
+/* ==========================================================================
+   8. Parallax Desktop Controlado (Secção 4 & 9)
+   ========================================================================== */
+
+@media (min-width: 1024px) and (pointer: fine) {
+  .has-parallax-img {
+    will-change: transform;
+    transition: transform 120ms linear;
+  }
+}
+
+/* Mobile: distâncias 33% menores, durações 15% mais curtas (Secção 2 & 9) */
+@media (max-width: 1023px) {
+  :root {
+    --rise-title: 16px;
+    --rise-block: 20px;
+    --rise-small: 8px;
+    --dur-enter: 680ms;
+    --dur-hero: 850ms;
+    --dur-mask: 900ms;
+    --dur-scale: 1200ms;
+  }
+}
+
+/* ==========================================================================
+   9. Transições entre Páginas (Secção 7 Opcional)
+   ========================================================================== */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   10. Acessibilidade — prefers-reduced-motion (Secção 9)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal],
+  .line-inner,
+  .reveal-init,
+  .service-band,
+  .services-cta-card,
+  .cta-banner,
+  .section-animate {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .typewriter-cursor {
+    display: none !important;
+  }
+
+  .hero-m1-bg-media,
+  .services-hero-bg-media,
+  .about-hero-bg-media {
+    transform: none !important;
+  }
+
+  .cycle-timeline-line::before {
+    display: none !important;
+  }
+}
