@@ -111,7 +111,7 @@
 
         <div class="about-purpose-grid">
           <!-- Coluna Esquerda: Fotografia Institucional -->
-          <div class="about-media-block">
+          <div class="about-media-block" data-reveal="mask">
             <img 
               src="./img/sobre-1.jpg" 
               alt="Consultora da SAV-SCC em análise e apresentação de dados contabilísticos e financeiros" 
@@ -124,7 +124,7 @@
           </div>
 
           <!-- Coluna Direita: Conteúdo Institucional -->
-          <div class="about-purpose-text">
+          <div class="about-purpose-text" data-reveal="rise">
             <!-- Cabeçalho visível em Desktop -->
             <div class="about-purpose-header-desktop">
               <span class="text-eyebrow" style="color: var(--color-primary-600); margin-bottom: var(--space-2); display: block;">— IDENTIDADE</span>
@@ -150,7 +150,7 @@
     <section class="about-mission-vision-section" aria-labelledby="mission-vision-title">
       <div class="container">
         <h2 id="mission-vision-title" class="sr-only">Missão e Visão da SAV-SCC</h2>
-        <div class="about-mission-vision-grid">
+        <div class="about-mission-vision-grid" data-reveal="stagger">
           <!-- Bloco Missão -->
           <div class="about-mv-card">
             <span class="about-mv-tag">Missão</span>
@@ -252,24 +252,27 @@
       <div class="container">
         <div class="about-target-grid">
           <!-- Coluna Esquerda: Texto e Fotografia Documentos -->
-          <div class="about-target-info">
+          <div class="about-target-info" data-reveal="rise">
             <span class="text-eyebrow" style="color: var(--color-primary-600); margin-bottom: var(--space-2); display: block;">— A QUEM NOS DIRIGIMOS</span>
-            <h2 id="target-title">Soluções Desenhadas para Diferentes Dimensões Empresariais</h2>
-            <p>
+            <h2 id="target-title" data-reveal="title">Soluções Desenhadas para Diferentes Dimensões Empresariais</h2>
+            <p data-reveal="subtitle">
               A nossa consultoria adapta-se ao ciclo de vida e à complexidade de cada organização, garantindo acompanhamento técnico sob medida quer para novos projetos, quer para operações consolidadas.
             </p>
-            <img 
-              src="./img/sobre-2.jpg" 
-              alt="Sessão de consultoria estratégica da SAV-SCC com empresário moçambicano" 
-              class="about-target-image"
-              loading="lazy"
-              width="520"
-              height="260"
-            >
+            <div data-reveal="mask" style="border-radius: var(--radius-lg); overflow: hidden; margin-top: var(--space-6);">
+              <img 
+                src="./img/sobre-2.jpg" 
+                alt="Sessão de consultoria estratégica da SAV-SCC com empresário moçambicano" 
+                class="about-target-image"
+                loading="lazy"
+                width="520"
+                height="260"
+                style="margin-top: 0;"
+              >
+            </div>
           </div>
 
           <!-- Coluna Direita: Cartões de Segmentação com Borda Azul -->
-          <div class="about-target-cards">
+          <div class="about-target-cards" data-reveal="stagger">
             <div class="about-target-card">
               <h3>Micro e Pequenas Empresas (PME)</h3>
               <p>Apoio na organização inicial da escrita, cumprimento escrupuloso de obrigações fiscais mensais (IVA, IRPS, IRPC) e emissão de relatórios claros de desempenho.</p>
@@ -299,15 +302,15 @@
       <div class="container">
         <div class="section-header text-center" style="max-width: 720px; margin: 0 auto;">
           <span class="text-eyebrow" style="color: var(--color-primary-600); display: block; margin-bottom: var(--space-2);">— COMO TRABALHAMOS</span>
-          <h2 id="approach-title" style="font-size: var(--font-size-3xl); color: var(--color-primary-900); font-weight: var(--font-weight-bold); margin-bottom: var(--space-3);">
+          <h2 id="approach-title" data-reveal="title" style="font-size: var(--font-size-3xl); color: var(--color-primary-900); font-weight: var(--font-weight-bold); margin-bottom: var(--space-3);">
             A Nossa Abordagem Profissional
           </h2>
-          <p style="color: var(--color-neutral-600); font-size: var(--font-size-base);">
+          <p data-reveal="subtitle" style="color: var(--color-neutral-600); font-size: var(--font-size-base);">
             Dois pilares fundamentais que distinguem a forma como nos relacionamos com cada empresário e gestor.
           </p>
         </div>
 
-        <div class="about-approach-grid">
+        <div class="about-approach-grid" data-reveal="stagger">
           <!-- Coluna I -->
           <div class="about-approach-col">
             <div class="about-approach-num" aria-hidden="true">I</div>
@@ -332,7 +335,7 @@
     <!-- Secção 6: CTA Final -->
     <section class="section" style="padding-top: 0; padding-bottom: var(--space-20);" aria-labelledby="about-cta-title">
       <div class="container">
-        <div class="services-cta-card">
+        <div class="services-cta-card" data-reveal="rise">
           <h2 class="services-cta-title" id="about-cta-title">Quer conhecer de perto a nossa forma de trabalhar?</h2>
           <p class="services-cta-lead">
             Agende uma reunião inicial sem compromisso com os nossos consultores e descubra como podemos apoiar a sua empresa.

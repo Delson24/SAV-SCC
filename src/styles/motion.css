@@ -71,17 +71,35 @@
   transform: translateY(0) !important;
 }
 
-/* Subtítulo associado ao P1 */
-[data-reveal="subtitle"].reveal-init {
+/* P1.1 · Title (Título com subida suave e fade) */
+[data-reveal="title"].reveal-init,
+.reveal-title.reveal-init {
   opacity: 0;
-  transform: translateY(var(--rise-title, 20px));
-  transition: opacity 800ms var(--ease-out),
-              transform 800ms var(--ease-out);
-  transition-delay: 200ms;
+  transform: translateY(var(--rise-title, 24px));
+  transition: opacity 700ms var(--ease-out),
+              transform 700ms var(--ease-out);
   will-change: opacity, transform;
 }
 
-[data-reveal="subtitle"].is-revealed {
+[data-reveal="title"].is-revealed,
+.reveal-title.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Subtítulo associado ao título (P1/P1.1) com delay visual escalonado */
+[data-reveal="subtitle"].reveal-init,
+.reveal-subtitle.reveal-init {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms var(--ease-out),
+              transform 700ms var(--ease-out);
+  transition-delay: 140ms;
+  will-change: opacity, transform;
+}
+
+[data-reveal="subtitle"].is-revealed,
+.reveal-subtitle.is-revealed {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
@@ -90,7 +108,7 @@
 [data-reveal="mask"].reveal-init,
 .reveal-mask.reveal-init {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px);
   overflow: hidden;
   border-radius: var(--radius-lg, 12px);
   transition: opacity var(--dur-mask, 1000ms) var(--ease-out),
@@ -107,11 +125,12 @@
 [data-reveal="mask"] img,
 .reveal-mask img {
   transition: transform var(--dur-scale, 1400ms) var(--ease-out);
+  will-change: transform;
 }
 
 [data-reveal="mask"].reveal-init:not(.is-revealed) img,
 .reveal-mask.reveal-init:not(.is-revealed) img {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 [data-reveal="mask"].is-revealed img,
@@ -119,7 +138,7 @@
   transform: scale(1);
 }
 
-/* P5 · Rule (Linhas e réguas que se desenham da esquerda) */
+/* P5 · Rule (Linhas e réguas horizontais que se desenham da esquerda) */
 [data-reveal="rule"].reveal-init {
   transform: scaleX(0);
   transform-origin: left center;
@@ -129,6 +148,18 @@
 
 [data-reveal="rule"].is-revealed {
   transform: scaleX(1) !important;
+}
+
+/* P5.1 · Rule Y (Linhas verticais que se desenham do topo) */
+[data-reveal="rule-y"].reveal-init {
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 800ms var(--ease-in-out);
+  will-change: transform;
+}
+
+[data-reveal="rule-y"].is-revealed {
+  transform: scaleY(1) !important;
 }
 
 .mockup-eyebrow .mockup-eyebrow-dash {
@@ -224,6 +255,68 @@
 
 .hero-m1-bg-media.is-settled {
   transform: scale(1) translateY(var(--hero-parallax-y, 0px));
+}
+
+/* Hero da Homepage — Sequência Tipográfica e Ações */
+.hero-m1-title {
+  will-change: transform, opacity;
+}
+
+.hero-m1-lead.reveal-init {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 750ms var(--ease-out), transform 750ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.hero-m1-lead.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.hero-m1-actions > *.reveal-init {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out),
+              background-color var(--dur-micro, 180ms) var(--ease-ui),
+              box-shadow var(--dur-micro, 180ms) var(--ease-ui);
+  will-change: opacity, transform;
+}
+
+.hero-m1-actions > *.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Heros Secundários (Serviços, Proposta de Valor, Sobre Nós, Contactos) */
+.services-hero-title.reveal-init,
+.about-hero-title.reveal-init,
+.contact-hero-title.reveal-init {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 750ms var(--ease-out), transform 750ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.services-hero-title.is-revealed,
+.about-hero-title.is-revealed,
+.contact-hero-title.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.services-hero-lead.reveal-init,
+.about-hero-lead.reveal-init {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.services-hero-lead.is-revealed,
+.about-hero-lead.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .hero-m1-pillars-bar {
@@ -577,7 +670,11 @@
 .contact-quick-card,
 .value-pillar-card,
 .about-target-card,
-.about-approach-col {
+.about-approach-col,
+.value-prop-m3-card,
+.compare-card-passive,
+.compare-card-active,
+.services-cta-card {
   transition: transform 250ms var(--ease-ui),
               box-shadow 250ms var(--ease-ui),
               border-color 250ms var(--ease-ui);
@@ -586,10 +683,35 @@
 @media (hover: hover) {
   .service-card:hover,
   .contact-quick-card:hover,
-  .value-pillar-card:hover {
+  .value-pillar-card:hover,
+  .about-target-card:hover,
+  .about-approach-col:hover,
+  .compare-card-passive:hover,
+  .compare-card-active:hover {
     transform: translateY(-4px);
     box-shadow: 0 16px 36px -8px rgba(0, 40, 85, 0.14);
   }
+
+  .services-cta-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -10px rgba(0, 23, 51, 0.2);
+  }
+}
+
+/* Revelação suave de CTA Card com scale */
+.services-cta-card.reveal-init,
+.cta-banner.reveal-init {
+  opacity: 0;
+  transform: translateY(22px) scale(0.985);
+  transition: opacity 800ms var(--ease-out),
+              transform 800ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.services-cta-card.is-revealed,
+.cta-banner.is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
 }
 
 /* Sublinhado dinâmico dos itens da Navbar a crescer da esquerda (Secção 4.1 O) */
