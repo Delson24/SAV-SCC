@@ -67,7 +67,7 @@ export function initFinancialCycle() {
       const step = CYCLE_STEPS[currentIndex];
 
       if (isInitial || prefersReduced) {
-        if (stageBadge) stageBadge.textContent = `— ETAPA ${step.stepNumber} — ${step.stageName}`;
+        if (stageBadge) stageBadge.textContent = `ETAPA ${step.stepNumber} · ${step.stageName}`;
         if (counter) counter.textContent = `${currentIndex + 1} de ${CYCLE_STEPS.length}`;
         if (stageTitle) stageTitle.textContent = step.title;
         if (stageDesc) stageDesc.textContent = step.description;
@@ -91,7 +91,7 @@ export function initFinancialCycle() {
 
       setTimeout(() => {
         // Atualizar textos no DOM
-        if (stageBadge) stageBadge.textContent = `— ETAPA ${step.stepNumber} — ${step.stageName}`;
+        if (stageBadge) stageBadge.textContent = `ETAPA ${step.stepNumber} · ${step.stageName}`;
         if (counter) counter.textContent = `${currentIndex + 1} de ${CYCLE_STEPS.length}`;
         if (stageTitle) stageTitle.textContent = step.title;
         if (stageDesc) stageDesc.textContent = step.description;

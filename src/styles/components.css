@@ -1502,13 +1502,26 @@ html.js-active .pillars-asymmetric-grid.is-visible .pillar-card-asymmetric {
 }
 
 .contact-slogan-eyebrow {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #93c5fd;
   margin-bottom: var(--space-3);
+}
+
+.contact-slogan-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: currentColor;
+  opacity: 0.7;
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .contact-slogan-quote {
@@ -1873,6 +1886,17 @@ html:not(.js-active) .section-animate {
   margin-bottom: var(--space-3);
 }
 
+.mockup-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: currentColor;
+  opacity: 0.7;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
 .mockup-eyebrow--dark {
   color: #94a3b8;
 }
@@ -1882,8 +1906,7 @@ html:not(.js-active) .section-animate {
 }
 
 .mockup-eyebrow-dash {
-  display: inline-block;
-  user-select: none;
+  display: none !important;
 }
 
 /* Cabeçalho exclusivo da Homepage sobre o Hero */
@@ -2161,6 +2184,17 @@ html:not(.js-active) .section-animate {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.hero-m1-pillar-item::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background-color: currentColor;
+  opacity: 0.5;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
 /* Secção 2: Serviços Especializados (Mockup 2) */
 .services-m2-section {
   background-color: #ffffff;
@@ -2339,13 +2373,29 @@ html:not(.js-active) .section-animate {
 
 @media (max-width: 900px) {
   .value-prop-m3-section {
-    background: linear-gradient(
-      180deg,
-      #001428 0%,
-      #001428 290px,
-      #eef2f6 290px,
-      #eef2f6 100%
-    );
+    padding-top: 0;
+    padding-bottom: var(--space-16);
+    background: #eef2f6;
+  }
+
+  .value-prop-m3-header {
+    background-color: #001428;
+    margin-left: calc(-1 * var(--space-4));
+    margin-right: calc(-1 * var(--space-4));
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-10);
+    margin-bottom: var(--space-8);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 900px) {
+  .value-prop-m3-header {
+    margin-left: calc(-1 * var(--space-6));
+    margin-right: calc(-1 * var(--space-6));
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
   }
 }
 
@@ -2396,6 +2446,13 @@ html:not(.js-active) .section-animate {
   flex-direction: column;
   min-height: 330px;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+@media (max-width: 640px) {
+  .value-prop-m3-card {
+    min-height: auto;
+    padding: var(--space-6);
+  }
 }
 
 .value-prop-m3-card-num {
@@ -2515,6 +2572,12 @@ html:not(.js-active) .section-animate {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@media (max-width: 640px) {
+  .about-m4-img-wrap img {
+    height: 260px;
+  }
+}
+
 .about-m4-img-wrap:hover img {
   transform: scale(1.03);
 }
@@ -2569,6 +2632,7 @@ html:not(.js-active) .section-animate {
 
 .about-m4-quote {
   font-family: var(--font-family-serif);
+  font-style: italic;
   font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.75rem);
   font-weight: 400;
   color: #001733;
@@ -3658,13 +3722,26 @@ html:not(.js-active) .section-animate {
 }
 
 .about-hero-eyebrow {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #93c5fd;
   margin-bottom: var(--space-3);
+}
+
+.about-hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: currentColor;
+  opacity: 0.7;
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .about-hero-title {

@@ -162,16 +162,19 @@
   transform: scaleY(1) !important;
 }
 
+.mockup-eyebrow::before,
 .mockup-eyebrow .mockup-eyebrow-dash {
   display: inline-block;
   transform-origin: left center;
   transition: transform 600ms var(--ease-in-out);
 }
 
+.mockup-eyebrow.reveal-init::before,
 .mockup-eyebrow.reveal-init .mockup-eyebrow-dash {
   transform: scaleX(0);
 }
 
+.mockup-eyebrow.is-revealed::before,
 .mockup-eyebrow.is-revealed .mockup-eyebrow-dash {
   transform: scaleX(1);
 }
